@@ -20,8 +20,7 @@ class Ec2InstanceStack(Stack):
         instance = ec2.Instance(self, "Instance",
                                 instance_type=ec2.InstanceType("t2.micro"),
                                 machine_image=ec2.MachineImage.latest_amazon_linux(),
-                                vpc=vpc,
-                                role=role)
+                                vpc=vpc)
 
         # Configurar los archivos websimple y webplantilla en la instancia EC2
         user_data_script = """
