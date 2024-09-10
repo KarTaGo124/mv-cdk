@@ -1,4 +1,5 @@
 from aws_cdk import (
+    App,
     Stack,
     aws_ec2 as ec2,
     aws_iam as iam,
@@ -47,3 +48,9 @@ class Ec2InstanceStack(Stack):
         """
         instance.add_user_data(user_data_script)
 
+# Inicializar la aplicación CDK
+app = App()
+Ec2InstanceStack(app, "Ec2InstanceStack")
+
+# Generar el archivo de manifest.json
+app.synth()
